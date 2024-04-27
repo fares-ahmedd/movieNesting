@@ -18,18 +18,20 @@ const router = createBrowserRouter([
 
 function App() {
   const dispatch = useDispatch();
-  const { url } = useSelector((state) => state.home);
   useEffect(() => {
     apiTesting();
   }, []);
   async function apiTesting() {
     try {
-      const response = await fetchData("/movie/popular");
-      console.log(response);
-      dispatch(getApiConfig(response));
+      const response = await fetchData("/configuration");
+      const data = {
+        backdrop: `${response.images.secure_base_url}original`,
+        poster: `${response.images.secure_base_url}original`,
+        profile: `${response.images.secure_base_url}original`,
+      };
+      dispatch(getApiConfig(data));
     } catch (error) {}
   }
-  console.log(url);
   return <RouterProvider router={router} />;
 }
 

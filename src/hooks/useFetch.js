@@ -3,7 +3,7 @@ import { fetchData } from "../utils/api";
 
 function useFetch(url) {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,13 +14,13 @@ function useFetch(url) {
       } catch (error) {
         setError("Something went wrong!");
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     }
     getData();
   }, [url]);
 
-  return { data, loading, error };
+  return { data, isLoading, error };
 }
 
 export default useFetch;

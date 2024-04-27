@@ -1,7 +1,13 @@
 @import "../../mixins.scss";
+header {
+  position: absolute;
+  width: 100%;
+}
+
 .header {
   @include flexBetween(5px);
   @include layout;
+  top: 0;
   &__img {
     width: 300px;
 
