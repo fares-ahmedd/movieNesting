@@ -4,7 +4,7 @@
   &__input {
     background-color: #fff;
     border-radius: 30px 0 0 30px;
-    height: 35px;
+    height: 30px;
     padding: 0 30px;
     flex-basis: 70%;
   }
@@ -13,13 +13,13 @@
     align-items: center;
     cursor: pointer;
     width: 150px;
-    height: 35px;
+    height: 30px;
     font-size: 18px;
     border-radius: 0 30px 30px 0;
     gap: 5px;
     justify-content: center;
     flex-basis: 30%;
-    background: linear-gradient(98.37deg, #0e5e87 0.99%, #65c7dd 100%);
+    background: var(--gradient);
     color: white;
     font-weight: bold;
   }

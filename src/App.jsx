@@ -4,7 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { getApiConfig } from "./store/slices/homeSlice";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home/Home";
-const router = createBrowserRouter([{ path: "/", element: <Home /> }]);
+import AppLayout from "./pages/AppLayout";
+import SearchResult from "./pages/searchResult/SearchResult";
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/search/:query", element: <SearchResult /> },
+    ],
+  },
+]);
 
 function App() {
   const dispatch = useDispatch();

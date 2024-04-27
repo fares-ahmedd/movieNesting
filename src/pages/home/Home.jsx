@@ -1,12 +1,11 @@
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+import HeroBanner from "./heroBanner/HeroBanner";
 
 function Home() {
   return (
     <>
-      <Header />
-      <div></div>
-      <Footer />
+      <main className="home">
+        <HeroBanner />
+      </main>
     </>
   );
 }
