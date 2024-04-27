@@ -3,6 +3,18 @@
 .hero-banner {
   @include center();
   height: 100vh;
+  width: 100%;
+  background-color: var(--black);
+  position: relative;
+  &__backdrop-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    overflow: hidden;
+  }
   &__content {
     width: 80%;
     margin: auto;

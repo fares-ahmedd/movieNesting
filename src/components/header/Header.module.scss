@@ -2,22 +2,10 @@
 header {
   position: absolute;
   width: 100%;
+  top: 0;
 }
 
-.header {
+.header__Container {
   @include flexBetween(5px);
   @include layout;
-  top: 0;
-  &__img {
-    width: 300px;
-
-    padding-top: 10px;
-    @include sm {
-      width: 200px;
-    }
-    @include lg {
-      width: 30%;
-      height: 30%;
-    }
-  }
 }

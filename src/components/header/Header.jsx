@@ -1,15 +1,11 @@
-import Logo from "../../assets/movieNesting-logo.svg";
 import SearchForm from "../../ui/SearchForm";
 import classes from "./Header.module.scss";
+import Logo from "./Logo";
 function Header() {
   return (
     <header>
-      <div className={classes["header"]}>
-        <img
-          src={Logo}
-          alt="MovieNesting Logo"
-          className={classes["header__img"]}
-        />
+      <div className={classes["header__Container"]}>
+        <Logo />
         <SearchForm />
       </div>
     </header>

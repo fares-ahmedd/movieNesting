@@ -29,7 +29,13 @@
   }
 }
 // end media
-
+@mixin ellipsis($line: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @mixin layout {
   width: 100%;
   max-width: 1200px;

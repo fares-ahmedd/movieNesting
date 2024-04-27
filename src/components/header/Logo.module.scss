@@ -1,0 +1,13 @@
+@import "../../mixins.scss";
+
+.img {
+  width: 300px;
+
+  padding-top: 10px;
+  @include sm {
+    width: 200px;
+  }
+  @include lg {
+    width: 60%;
+  }
+}
