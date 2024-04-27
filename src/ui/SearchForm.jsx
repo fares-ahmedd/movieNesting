@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./SearchForm.module.scss";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import ButtonIcon from "./ButtonIcon";
 
 function SearchForm() {
   const [query, setQuery] = useState("");
@@ -30,9 +31,7 @@ function SearchForm() {
         onKeyUp={handleKeyup}
         onChange={handleChange}
       />
-      <button type="submit" className={classes["search-form__button"]}>
-        <span>Search</span> <CiSearch />
-      </button>
+      <ButtonIcon title={"Search"} icon={<CiSearch />} type="submit" />
     </form>
   );
 }

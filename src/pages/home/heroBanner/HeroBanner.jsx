@@ -5,7 +5,6 @@ import LinkButton from "../../../ui/LinkButton";
 import { useSelector } from "react-redux";
 import { moviesList } from "../../../utils/helpers";
 import Img from "../../../components/lazyLoadImage/Img";
-import Fav from "../../../assets/favicon-.png";
 import LogoSpinner from "../../../ui/LogoSpinner";
 function HeroBanner() {
   const [background, setBackground] = useState("");
@@ -21,7 +20,7 @@ function HeroBanner() {
   return (
     <div className={classes["hero-banner"]}>
       <div className={classes["hero-banner__backdrop-img"]}>
-        <Img src={background} />
+        <Img src={background} className={"img-poster"} />
       </div>
 
       <div className={classes["hero-banner__content"]}>
@@ -38,7 +37,7 @@ function HeroBanner() {
           <LinkButton>Watch TV Shows 📺</LinkButton>
         </div>
       </div>
-      <div className="hero-banner--opacity"></div>
+      <div className={classes["hero-banner--opacity"]}></div>
     </div>
   );
 }

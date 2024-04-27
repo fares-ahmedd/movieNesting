@@ -1,0 +1,16 @@
+.fixed {
+  position: fixed;
+  z-index: 98498498498;
+  top: 43%;
+  right: -134px;
+  transform: translate(0, -50%) rotate(-90deg);
+  display: flex;
+
+  & button {
+    border-radius: 0;
+    background: gray;
+    &:first-child {
+      border-right: 2px solid;
+    }
+  }
+}

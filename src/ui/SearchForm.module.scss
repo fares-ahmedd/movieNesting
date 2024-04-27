@@ -8,19 +8,4 @@
     padding: 0 30px;
     flex-basis: 70%;
   }
-  &__button {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    width: 150px;
-    height: 30px;
-    font-size: 18px;
-    border-radius: 0 30px 30px 0;
-    gap: 5px;
-    justify-content: center;
-    flex-basis: 30%;
-    background: var(--gradient);
-    color: white;
-    font-weight: bold;
-  }
 }

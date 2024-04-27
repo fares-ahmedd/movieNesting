@@ -4,10 +4,8 @@
   width: 300px;
 
   padding-top: 10px;
-  @include sm {
-    width: 200px;
-  }
+
   @include lg {
-    width: 60%;
+    width: 150px;
   }
 }

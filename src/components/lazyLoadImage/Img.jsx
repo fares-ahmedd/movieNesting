@@ -9,6 +9,8 @@ const Img = ({ src, className }) => {
       alt="Poster"
       effect="blur"
       src={src}
+      width={"100%"}
+      height={"100%"}
     />
   );
 };
