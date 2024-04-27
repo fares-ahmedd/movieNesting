@@ -1,0 +1,23 @@
+@import "../../mixins.scss";
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  &__img {
+    width: 300px;
+    padding-top: 10px;
+    @include sm {
+      width: 200px;
+    }
+  }
+  .search-container {
+    &__input {
+    }
+    &__button {
+    }
+  }
+}

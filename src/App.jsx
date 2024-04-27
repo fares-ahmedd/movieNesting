@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { fetchData } from "./utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiConfig } from "./store/slices/homeSlice";
-const Navbar = () => {
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./pages/home/Home";
+const router = createBrowserRouter([{ path: "/", element: <Home /> }]);
+
+function App() {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home);
   useEffect(() => {
@@ -16,7 +20,7 @@ const Navbar = () => {
     } catch (error) {}
   }
   console.log(url);
-  return <div>{url?.total_pages}</div>;
-};
+  return <RouterProvider router={router} />;
+}
 
-export default Navbar;
+export default App;
