@@ -20,12 +20,15 @@ function SearchForm() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!query.trim()) return;
+    window.scrollTo({ top: 0 });
     navigate(`/search/${query}`);
+    setQuery("");
   }
   return (
     <form className={classes["search-form"]} onSubmit={handleSubmit}>
       <input
         type="text"
+        value={query}
         className={classes["search-form__input"]}
         placeholder="Search for movie or tv show..."
         onKeyUp={handleKeyup}

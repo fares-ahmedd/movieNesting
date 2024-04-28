@@ -8,32 +8,26 @@ function Header() {
   const navbarRef = useRef(null);
 
   useEffect(() => {
-    const handleObserver = (entries) => {
+    function handleObserver(entries) {
       const [entry] = entries;
       console.log(entry);
       setIsScrolled(!entry.isIntersecting);
-    };
+    }
     const options = {
       root: null,
-      rootMargin: "20px",
+      // rootMargin: "",
       threshold: 0,
     };
     const observer = new IntersectionObserver(handleObserver, options);
-    const currentRef = navbarRef.current; // Copy the current ref value
+    const currentRef = navbarRef.current;
     if (currentRef) {
       observer.observe(currentRef);
     }
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef); // Use the copied ref value
-      }
-    };
   }, []);
-  console.log(isScrolled);
 
   return (
     <>
-      <header>
+      <header className={isScrolled ? classes.scrolled : ""}>
         <div className={classes["header__Container"]}>
           <Logo />
           <SearchForm />

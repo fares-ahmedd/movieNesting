@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import classes from "./HeroBanner.module.scss";
 import LinkButton from "../../../ui/LinkButton";

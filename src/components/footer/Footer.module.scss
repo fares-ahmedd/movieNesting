@@ -1,0 +1,25 @@
+@import "../../mixins.scss";
+.footer {
+  @include layout;
+  padding: 20px 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  @include sm {
+    font-size: 18px;
+  }
+}
+
+.listIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icon {
+  cursor: pointer;
+}
