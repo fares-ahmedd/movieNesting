@@ -22,7 +22,6 @@ function HeroBanner() {
       <div className={classes["hero-banner__backdrop-img"]}>
         <Img src={background} className={"img-poster"} />
       </div>
-
       <div className={classes["hero-banner__content"]}>
         <h1 className={classes["title"]}>
           Unlimited Movies and TVs <br /> Shows and More

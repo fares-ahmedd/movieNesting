@@ -20,20 +20,22 @@ export const icons = [
 function Footer() {
   return (
     <footer className={classes.footer}>
-      <h1 className={classes.title}>Contact or follow me on :</h1>
-      <ul className={classes.listIcons}>
-        {iconsLinks.map((icon, index) => (
-          <li key={icon.title} className={classes.icon}>
-            <a href={icon.href} target="_blank" rel="noreferrer noopener">
-              <IconButton
-                icon={icons[index]}
-                backgroundColor={icon.bgColor}
-                title={icon.title}
-              />
-            </a>
-          </li>
-        ))}
-      </ul>
+      <main className={classes.layout}>
+        <h1 className={classes.title}>Contact or follow me on :</h1>
+        <ul className={classes.listIcons}>
+          {iconsLinks.map((icon, index) => (
+            <li key={icon.title} className={classes.icon}>
+              <a href={icon.href} target="_blank" rel="noreferrer noopener">
+                <IconButton
+                  icon={icons[index]}
+                  backgroundColor={icon.bgColor}
+                  title={icon.title}
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </main>
     </footer>
   );
 }

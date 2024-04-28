@@ -1,7 +1,10 @@
 @import "../../mixins.scss";
 .footer {
-  @include layout;
   padding: 20px 0;
+  background-color: var(--black3);
+}
+.layout {
+  @include layout;
 }
 
 .title {

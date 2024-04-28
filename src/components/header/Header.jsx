@@ -15,7 +15,7 @@ function Header() {
     }
     const options = {
       root: null,
-      // rootMargin: "",
+      rootMargin: "-50px",
       threshold: 0,
     };
     const observer = new IntersectionObserver(handleObserver, options);

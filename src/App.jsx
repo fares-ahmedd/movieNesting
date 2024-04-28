@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
-import { fetchData } from "./utils/api";
-import { useDispatch } from "react-redux";
-import { getApiConfig } from "./store/slices/homeSlice";
+import React, { useCallback, useEffect } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home/Home";
 import AppLayout from "./pages/AppLayout";
@@ -17,21 +14,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    apiTesting();
-  }, []);
-  async function apiTesting() {
-    try {
-      const response = await fetchData("/configuration");
-      const data = {
-        backdrop: `${response.images.secure_base_url}original`,
-        poster: `${response.images.secure_base_url}original`,
-        profile: `${response.images.secure_base_url}original`,
-      };
-      dispatch(getApiConfig(data));
-    } catch (error) {}
-  }
   return <RouterProvider router={router} />;
 }
 
