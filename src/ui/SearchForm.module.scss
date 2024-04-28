@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 .search-form {
   display: flex;
   align-items: center;
@@ -7,5 +9,16 @@
     height: 30px;
     padding: 0 30px;
     flex-basis: 70%;
+  }
+  @include sm {
+    margin: auto;
+    &__input {
+      padding: 0 5px;
+      flex-basis: auto;
+    }
+    & button {
+      flex-basis: auto;
+      width: 90px;
+    }
   }
 }

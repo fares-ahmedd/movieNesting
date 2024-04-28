@@ -5,4 +5,5 @@ export const moviesList = [
   "Action Movies",
   "Fantasy Movies",
   "TV Shows",
+  "Series",
 ];

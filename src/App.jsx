@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { fetchData } from "./utils/api";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getApiConfig } from "./store/slices/homeSlice";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home/Home";

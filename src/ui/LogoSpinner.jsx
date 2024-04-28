@@ -8,6 +8,7 @@ function LogoSpinner() {
     <div className={styles.spinnerContainer}>
       <div className={styles.spinner}>
         <Img src={logoImage} className={styles.logo} />
+        <h1 className={styles.title}>Loading...</h1>
       </div>
     </div>
   );
