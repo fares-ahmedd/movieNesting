@@ -5,14 +5,18 @@ import dayjs from "dayjs";
 import classes from "./CarouselItem.module.scss";
 import CircleRating from "../../ui/CircleRating";
 import Genres from "../genres/Genres";
-function CarouselItem({ item }) {
+import { useNavigate } from "react-router-dom";
+function CarouselItem({ item, endpoint }) {
   const { url } = useSelector((state) => state.home);
+  const navigate = useNavigate();
   const posterUrl = item.poster_path
     ? url.poster + item.poster_path
     : PosterFallback;
-
+  function handleClick() {
+    navigate(`/${item.media_type || endpoint}/${item.id}`);
+  }
   return (
-    <div className={classes.carouselItem} key={item.id}>
+    <div className={classes.carouselItem} key={item.id} onClick={handleClick}>
       <div className={classes.posterBlock}>
         <Img src={posterUrl} className={classes.img} />
         <CircleRating

@@ -7,6 +7,8 @@ import { getApiConfig } from "../../store/slices/homeSlice";
 import HeroBanner from "./heroBanner/HeroBanner";
 import classes from "./Home.module.scss";
 import Trending from "./trending/Trending";
+import Popular from "./popular/Popular";
+import TopRated from "./topRated/TopRated";
 function Home() {
   const dispatch = useDispatch();
   const getInitialPoster = useCallback(
@@ -31,6 +33,8 @@ function Home() {
       <main className={classes.main}>
         <HeroBanner />
         <Trending />
+        <Popular />
+        <TopRated />
       </main>
     </>
   );

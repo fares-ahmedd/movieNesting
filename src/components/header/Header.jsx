@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import SearchForm from "../../ui/SearchForm";
 import classes from "./Header.module.scss";
 import Logo from "./Logo";
+import IconButton from "../../ui/IconButton";
+import { FaArrowAltCircleUp } from "react-icons/fa";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,6 +35,12 @@ function Header() {
         </div>
       </header>
       <span className={classes.scroll} ref={navbarRef}></span>
+      <IconButton
+        title={"Up"}
+        icon={<FaArrowAltCircleUp />}
+        className={`${classes.upIcon} ${isScrolled ? classes.active : ""}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      />
     </>
   );
 }

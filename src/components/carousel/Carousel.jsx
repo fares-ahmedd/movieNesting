@@ -3,18 +3,22 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
 import classes from "./Carousel.module.scss";
 import LoadingSkeleton from "../loadingSkeleton/LoadingSkeleton";
 import CarouselItem from "./CarouselItem";
 
-function Carousel({ data, isLoading }) {
+function Carousel({ data, isLoading, endpoint }) {
   const carouselContainer = useRef();
-  const navigate = useNavigate();
-
-  function navigation(dir) {}
+  function navigation(dir) {
+    const container = carouselContainer.current;
+    const scrollAmount =
+      dir === "left"
+        ? container.scrollLeft - (container.offsetWidth + 20)
+        : container.scrollLeft + (container.offsetWidth + 20);
+    container.scrollTo({ left: scrollAmount, behavior: "smooth" });
+  }
   return (
-    <section ref={carouselContainer} className={classes.carousel}>
+    <section className={classes.carousel}>
       <div className={classes.layout}>
         <BsFillArrowLeftCircleFill
           className={`${classes.carouselLeftNav} ${classes.arrow}`}
@@ -25,9 +29,11 @@ function Carousel({ data, isLoading }) {
           onClick={() => navigation("right")}
         />
         {!isLoading && (
-          <div className={classes.carouselItems}>
+          <div className={classes.carouselItems} ref={carouselContainer}>
             {data?.map((item, index) => {
-              return <CarouselItem item={item} key={index} />;
+              return (
+                <CarouselItem item={item} key={index} endpoint={endpoint} />
+              );
             })}
           </div>
         )}

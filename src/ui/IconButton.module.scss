@@ -25,6 +25,7 @@
   font-size: 0.875rem;
   transform: translateY(-2.5rem);
   transition: all 0.7s ease;
+  pointer-events: none;
 }
 
 .button:hover .tooltip {

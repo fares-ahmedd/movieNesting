@@ -50,3 +50,20 @@ header {
     opacity: 1;
   }
 }
+
+.upIcon {
+  position: fixed;
+  z-index: 898949464646546546546;
+  right: 28px;
+  height: 30px;
+  width: 30px;
+  top: -542px;
+  bottom: 0;
+  svg {
+    color: black;
+  }
+}
+
+.active {
+  top: 542px;
+}
