@@ -2,7 +2,10 @@
 
 .carouselItem {
   width: 125px;
+  background-color: var(--black2);
+  border-radius: 10px;
   cursor: pointer;
+  padding: 5px 0;
   @include mdMin {
     width: calc(25% - 15px);
   }

@@ -10,7 +10,6 @@ function Header() {
   useEffect(() => {
     function handleObserver(entries) {
       const [entry] = entries;
-      console.log(entry);
       setIsScrolled(!entry.isIntersecting);
     }
     const options = {

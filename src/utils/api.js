@@ -19,3 +19,20 @@ export async function fetchData(url, params) {
     throw error;
   }
 }
+
+export async function genresCall() {
+  let promises = [];
+  let endPoints = ["tv", "movie"];
+  let allGenres = {};
+
+  endPoints.forEach((url) => {
+    promises.push(fetchData(`/genre/${url}/list`));
+  });
+
+  const data = await Promise.all(promises);
+  data.forEach(({ genres }) => {
+    return genres.forEach((item) => (allGenres[item.id] = item));
+  });
+
+  return allGenres;
+}

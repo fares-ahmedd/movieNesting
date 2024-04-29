@@ -36,10 +36,6 @@ body {
   color: whitesmoke;
 }
 
-// ::-webkit-scrollbar {
-//   display: none;
-// }
-
 .skeleton {
   position: relative;
   overflow: hidden;
@@ -68,3 +64,26 @@ body {
     }
   }
 }
+text {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--black-light);
+  border: 2px solid var(--gradient);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--black2);
+}
+
+/* end scrollbar */

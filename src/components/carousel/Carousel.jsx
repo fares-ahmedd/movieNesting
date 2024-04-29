@@ -26,8 +26,8 @@ function Carousel({ data, isLoading }) {
         />
         {!isLoading && (
           <div className={classes.carouselItems}>
-            {data?.map((item) => {
-              return <CarouselItem item={item} />;
+            {data?.map((item, index) => {
+              return <CarouselItem item={item} key={index} />;
             })}
           </div>
         )}
