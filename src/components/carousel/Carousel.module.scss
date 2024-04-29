@@ -1,0 +1,67 @@
+@import "../../mixins.scss";
+.carousel {
+  margin-bottom: 50px;
+
+  .carouselTitle {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  .arrow {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 1;
+    display: none;
+    @include mdMin {
+      display: block;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .carouselLeftNav {
+    left: 30px;
+  }
+  .carouselRighttNav {
+    right: 30px;
+  }
+  .carouselItems {
+    display: flex;
+    gap: 10px;
+    overflow-y: hidden;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 0 20px;
+    @include mdMin {
+      gap: 20px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+.loadingSkeleton {
+  display: flex;
+  gap: 10px;
+  overflow-y: hidden;
+  margin-right: -20px;
+  margin-left: -20px;
+  padding: 0 20px;
+  @include mdMin {
+    gap: 20px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.layout {
+  @include layout();
+  position: relative;
+}

@@ -1,0 +1,32 @@
+@import "../../mixins.scss";
+
+.skeleton-item {
+  width: 125px;
+  @include mdMin {
+    width: calc(25% - 15px);
+  }
+  @include lgMin {
+    width: calc(20% - 16px);
+  }
+  flex-shrink: 0;
+  &__poster {
+    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 1 / 1.5;
+    margin-bottom: 30px;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10px;
+  }
+  &__date {
+    width: 75%;
+    height: 20px;
+  }
+}

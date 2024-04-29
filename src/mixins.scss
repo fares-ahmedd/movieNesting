@@ -55,3 +55,15 @@
   justify-content: center;
   gap: $gap;
 }
+
+@mixin mdMin {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lgMin {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
