@@ -1,0 +1,19 @@
+.info {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 0;
+  display: flex;
+  .infoItem {
+    margin-right: 10px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .text {
+    margin-right: 10px;
+    opacity: 0.5;
+    line-height: 24px;
+    &.bold {
+      font-weight: 600;
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../../mixins.scss";
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+.rating {
+  @include center(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid;
+  color: yellow;
+  padding: 0 3px;
+}

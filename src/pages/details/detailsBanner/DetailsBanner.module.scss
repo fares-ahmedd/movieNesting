@@ -58,68 +58,9 @@
     }
     .right {
       color: white;
-
-      .title {
-        font-size: 28px;
-        line-height: 40px;
-        @include mdMin {
-          font-size: 34px;
-          line-height: 44px;
-        }
-      }
-      .subtitle {
-        font-size: 16px;
-        line-height: 24px;
-        margin-bottom: 15px;
-        font-style: italic;
-        opacity: 0.5;
-        @include mdMin {
-          font-size: 20px;
-          line-height: 28px;
-        }
-      }
       .genres {
         margin-bottom: 25px;
         flex-flow: row wrap;
-      }
-      .overview {
-        margin-bottom: 25px;
-        .heading {
-          font-size: 24px;
-          margin-bottom: 10px;
-        }
-        .description {
-          line-height: 24px;
-          @include md {
-            padding-right: 100px;
-          }
-        }
-      }
-      .row {
-        display: flex;
-        align-items: center;
-        gap: 25px;
-        margin-bottom: 25px;
-      }
-
-      .info {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 15px 0;
-        display: flex;
-        .infoItem {
-          margin-right: 10px;
-          display: flex;
-          flex-flow: row wrap;
-        }
-        .text {
-          margin-right: 10px;
-          opacity: 0.5;
-          line-height: 24px;
-          &.bold {
-            font-weight: 600;
-            opacity: 1;
-          }
-        }
       }
     }
   }
@@ -165,18 +106,4 @@
       }
     }
   }
-}
-
-.rating {
-  @include center(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid;
-  color: yellow;
-  padding: 0 3px;
 }

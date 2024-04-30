@@ -1,0 +1,21 @@
+@import "../../../mixins.scss";
+
+.title {
+  font-size: 28px;
+  line-height: 40px;
+  @include mdMin {
+    font-size: 34px;
+    line-height: 44px;
+  }
+}
+.subtitle {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  font-style: italic;
+  opacity: 0.5;
+  @include mdMin {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
