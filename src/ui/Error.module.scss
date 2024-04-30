@@ -1,0 +1,17 @@
+@import "../mixins.scss";
+.container {
+  height: 100vh;
+  @include center(10);
+  flex-direction: column;
+  & .title {
+    font-size: 26px;
+    color: red;
+    margin: 10px 0 15px;
+    text-align: center;
+  }
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+}

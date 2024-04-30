@@ -21,8 +21,13 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  width: fit-content;
+  margin: auto;
 }
-
+.listIcons:hover > :not(:hover) {
+  opacity: 0.4;
+}
 .icon {
   cursor: pointer;
+  transition: opacity 0.6s ease-in-out;
 }
