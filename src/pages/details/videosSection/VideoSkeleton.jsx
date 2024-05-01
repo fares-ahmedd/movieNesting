@@ -4,9 +4,9 @@ function VideoSkeleton() {
   const loadingSkeleton = () => {
     return (
       <div className={classes.skItem}>
-        <div className={`${classes.thumb} ${classes.skeleton}`}></div>
-        <div className={`${classes.row} ${classes.skeleton}`}></div>
-        <div className={`${classes.row2} ${classes.skeleton}`}></div>
+        <div className={`${classes.thumb} skeleton`}></div>
+        <div className={`${classes.row} skeleton`}></div>
+        <div className={`${classes.row2} skeleton`}></div>
       </div>
     );
   };

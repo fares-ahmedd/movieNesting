@@ -11,6 +11,8 @@ const Cast = ({ data, isLoading }) => {
   return (
     <div className={classes.castSection}>
       <div className={classes.sectionHeading}>Top Cast</div>
+      {isLoading && <CastSkeleton />}
+
       {!isLoading && (
         <div className={classes.listItems}>
           {data?.map((item) => {
@@ -27,7 +29,6 @@ const Cast = ({ data, isLoading }) => {
           })}
         </div>
       )}
-      {isLoading && <CastSkeleton />}
     </div>
   );
 };

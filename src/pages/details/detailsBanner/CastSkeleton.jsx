@@ -2,7 +2,7 @@ import classes from "./CastSkeleton.module.scss";
 
 const CastSkeleton = () => {
   const skeletonItem = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 4; i++) {
     skeletonItem.push(
       <div key={i} className={classes["cast-skeleton__item"]}>
         <div className={`${classes["cast-skeleton__circle"]} skeleton`}></div>

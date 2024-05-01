@@ -14,7 +14,7 @@ import BannerTitle from "./BannerTitle.jsx";
 import { URL } from "../../../utils/api.js";
 import Cast from "./Cast.jsx";
 
-function DetailsBanner({ video, crew, credits, isLoadingCredits }) {
+function DetailsBanner({ video, crew, credits, isLoading: isLoadingCasts }) {
   const { mediaType, id } = useParams();
   const { data, isLoading } = useFetch(`/${mediaType}/${id}`);
   const _genres = data?.genres?.map((g) => g.id);
@@ -24,7 +24,7 @@ function DetailsBanner({ video, crew, credits, isLoadingCredits }) {
   );
   useEffect(() => {
     window.scrollTo({ top: "0" });
-  }, []);
+  }, [isLoadingCasts]);
   if (isLoading) return <LogoSpinner />;
   if (!data) return <Error />;
   return (
@@ -53,7 +53,7 @@ function DetailsBanner({ video, crew, credits, isLoadingCredits }) {
               <RatingAndPlay data={data} video={video} />
               <Overview data={data} />
               <MovieInfo data={data} director={director} writer={writer} />
-              <Cast data={credits?.cast} isLoading={isLoading} />
+              <Cast data={credits?.cast} isLoading={isLoadingCasts} />
             </div>
           </div>
         </div>

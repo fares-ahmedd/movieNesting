@@ -1,5 +1,5 @@
 import classes from "./VideosSection.module.scss";
-
+import noPoster from "../../../assets/no-poster.png";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 import Img from "../../../components/lazyLoadImage/Img";
 import Playbtn from "../Playbtn";
@@ -27,7 +27,11 @@ const VideosSection = ({ data, isLoading }) => {
               >
                 <div className={classes.videoThumbnail}>
                   <Img
-                    src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
+                    src={`${
+                      video.key
+                        ? `https://img.youtube.com/vi/${video.key}/mqdefault.jpg`
+                        : noPoster
+                    }`}
                   />
                   <Playbtn isRemoveTitle={true} />
                 </div>

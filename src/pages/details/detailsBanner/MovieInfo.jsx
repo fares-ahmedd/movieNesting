@@ -3,7 +3,6 @@ import classes from "./MovieInfo.module.scss";
 import { toHoursAndMinutes } from "../../../utils/helpers";
 
 function MovieInfo({ data, writer, director }) {
-  console.log(data);
   return (
     <>
       <div className={classes.info}>

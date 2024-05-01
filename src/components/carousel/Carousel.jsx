@@ -7,7 +7,7 @@ import classes from "./Carousel.module.scss";
 import LoadingSkeleton from "../loadingSkeleton/LoadingSkeleton";
 import CarouselItem from "./CarouselItem";
 
-function Carousel({ data, isLoading, endpoint }) {
+function Carousel({ data, isLoading, endpoint, title }) {
   const carouselContainer = useRef();
   function navigation(dir) {
     const container = carouselContainer.current;
@@ -20,6 +20,7 @@ function Carousel({ data, isLoading, endpoint }) {
   return (
     <section className={classes.carousel}>
       <div className={classes.layout}>
+        {title && <div className={classes.carouselTitle}>{title}</div>}
         <BsFillArrowLeftCircleFill
           className={`${classes.carouselLeftNav} ${classes.arrow}`}
           onClick={() => navigation("left")}
