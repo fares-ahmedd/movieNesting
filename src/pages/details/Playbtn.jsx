@@ -2,9 +2,12 @@
 import React from "react";
 import styles from "./Playbtn.module.scss";
 
-function Playbtn({ onClick }) {
+function Playbtn({ onClick, isRemoveTitle = false }) {
   return (
-    <div className={styles.btnContainer} onClick={onClick}>
+    <div
+      className={`${styles.btnContainer} ${isRemoveTitle ? styles.title : ""}`}
+      onClick={onClick}
+    >
       <button className={styles.button}>
         <svg
           viewBox="0 0 448 512"
@@ -18,7 +21,7 @@ function Playbtn({ onClick }) {
           />
         </svg>
       </button>
-      <span>Watch Trailer</span>
+      {isRemoveTitle ? null : <span>Watch Trailer</span>}
     </div>
   );
 }

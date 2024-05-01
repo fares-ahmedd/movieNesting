@@ -11,9 +11,10 @@ import Overview from "./Overview.jsx";
 import MovieInfo from "./MovieInfo.jsx";
 import RatingAndPlay from "./RatingAndPlay.jsx";
 import BannerTitle from "./BannerTitle.jsx";
-const URL = "https://image.tmdb.org/t/p/original/";
+import { URL } from "../../../utils/api.js";
+import Cast from "./Cast.jsx";
 
-function DetailsBanner({ video, crew }) {
+function DetailsBanner({ video, crew, credits, isLoadingCredits }) {
   const { mediaType, id } = useParams();
   const { data, isLoading } = useFetch(`/${mediaType}/${id}`);
   const _genres = data?.genres?.map((g) => g.id);
@@ -49,9 +50,10 @@ function DetailsBanner({ video, crew }) {
             <div className={classes.right}>
               <BannerTitle data={data} />
               <Genres data={_genres} width={"150px"} />
-              <RatingAndPlay data={data} />
+              <RatingAndPlay data={data} video={video} />
               <Overview data={data} />
               <MovieInfo data={data} director={director} writer={writer} />
+              <Cast data={credits?.cast} isLoading={isLoading} />
             </div>
           </div>
         </div>

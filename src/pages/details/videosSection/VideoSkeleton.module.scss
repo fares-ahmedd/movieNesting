@@ -1,0 +1,39 @@
+@import "../../../mixins.scss";
+
+.videoSkeleton {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-right: -20px;
+  margin-left: -20px;
+  padding: 0 20px;
+  @include mdMin {
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  .skItem {
+    width: 150px;
+    flex-shrink: 0;
+    @include mdMin {
+      width: 25%;
+    }
+    .thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    .row {
+      height: 20px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .row2 {
+      height: 20px;
+      width: 75%;
+      border-radius: 10px;
+    }
+  }
+}

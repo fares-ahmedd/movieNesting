@@ -3,6 +3,7 @@ import classes from "./MovieInfo.module.scss";
 import { toHoursAndMinutes } from "../../../utils/helpers";
 
 function MovieInfo({ data, writer, director }) {
+  console.log(data);
   return (
     <>
       <div className={classes.info}>
@@ -31,25 +32,25 @@ function MovieInfo({ data, writer, director }) {
           </div>
         )}
       </div>
-      {director.length > 0 && (
+      {director?.length > 0 && (
         <div className={classes.info}>
           <span className={`${classes.text} ${classes.bold}`}>Director: </span>
           <span className={classes.text}>
             {director.map((d, i) => (
               <span key={i}>
-                {d.name} {director.length - 1 !== i && ", "}
+                {d.name} {director?.length - 1 !== i && ", "}
               </span>
             ))}
           </span>
         </div>
       )}
-      {writer.length > 0 && (
+      {writer?.length > 0 && (
         <div className={classes.info}>
           <span className={`${classes.text} ${classes.bold}`}>Writer: </span>
           <span className={classes.text}>
             {writer.map((d, i) => (
               <span key={i}>
-                {d.name} {writer.length - 1 !== i && ", "}
+                {d.name} {writer?.length - 1 !== i && ", "}
               </span>
             ))}
           </span>

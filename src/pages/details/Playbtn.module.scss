@@ -2,11 +2,7 @@
 .btnContainer {
   @include center(10px);
   cursor: pointer;
-  transition: all 0.3s ease-in-out 0s;
 
-  &:is(:hover) {
-    transform: scale(1.1);
-  }
   .button {
     display: flex;
     justify-content: center;
@@ -25,5 +21,20 @@
 @keyframes pulse {
   100% {
     box-shadow: 0 0 0 45px rgba(193, 244, 246, 0);
+  }
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  & button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  & svg {
+    width: 20px;
+    height: 20px;
   }
 }

@@ -1,0 +1,64 @@
+@import "../../../mixins.scss";
+.castSection {
+  position: relative;
+  margin: 15px 0;
+
+  .sectionHeading {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 25px;
+  }
+  .listItems {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    width: 600px;
+    margin: auto;
+    align-items: center;
+
+    @include md {
+      width: 100%;
+    }
+    .listItem {
+      text-align: center;
+      color: white;
+      .profileImg {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 5px;
+        @include mdMin {
+          width: 175px;
+          height: 175px;
+          margin-bottom: 25px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+        }
+      }
+      .name {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        @include mdMin {
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+      .character {
+        font-size: 14px;
+        line-height: 20px;
+        opacity: 0.5;
+        @include mdMin {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
