@@ -4,14 +4,12 @@ const BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 export const URL = "https://image.tmdb.org/t/p/original/";
 
-const headers = {
-  authorization: `bearer ${TMDB_API_KEY}`,
-};
+const api_key = { api_key: TMDB_API_KEY };
 
 export async function fetchData(url, params) {
   try {
     const { data } = await axios.get(`${BASE_URL}${url}`, {
-      headers,
+      api_key,
       params,
     });
     return data;
