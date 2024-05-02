@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Select from "react-select";
@@ -32,18 +32,21 @@ function Explore() {
 
   const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
 
-  async function fetchInitialData() {
-    try {
-      setLoading(true);
-      const response = await fetchData(`/discover/${mediaType}`, filters);
-      setData(response);
-      setPageNum((prev) => prev + 1);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }
+  const fetchInitialData = useCallback(
+    async function fetchInitialData() {
+      try {
+        setLoading(true);
+        const response = await fetchData(`/discover/${mediaType}`, filters);
+        setData(response);
+        setPageNum((prev) => prev + 1);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [mediaType]
+  );
 
   async function fetchNextPageData() {
     const response = await fetchData(
@@ -68,7 +71,7 @@ function Explore() {
     setSortby(null);
     setGenre(null);
     fetchInitialData();
-  }, [mediaType]);
+  }, [mediaType, fetchInitialData]);
 
   function onChange(selectedItems, action) {
     if (action.name === "sortby") {

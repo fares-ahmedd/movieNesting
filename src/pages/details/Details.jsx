@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import classes from "./Details.module.scss";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
 import useFetch from "../../hooks/useFetch";
 import VideosSection from "./videosSection/VideosSection";

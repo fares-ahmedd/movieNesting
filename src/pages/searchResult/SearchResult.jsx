@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import noResult from "../../assets/no-poster.png";
 import LogoSpinner from "../../ui/LogoSpinner";
 import { useParams } from "react-router-dom";
 import classes from "./SearchResult.module.scss";
@@ -59,7 +58,7 @@ function SearchResult() {
                 loader={<LogoSpinner />}
               >
                 {data?.results.map((item, index) => {
-                  if (item.media_type === "person") return;
+                  if (item.media_type === "person") return null;
                   return (
                     <MovieCard key={index} data={item} fromSearch={true} />
                   );

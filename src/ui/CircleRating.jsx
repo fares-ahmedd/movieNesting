@@ -8,6 +8,7 @@ function CircleRating({ rating }) {
         value={ratingNumber}
         maxValue={10}
         text={rating}
+        strokeWidth={5}
         styles={buildStyles({
           pathColor:
             ratingNumber < 5 ? "red" : ratingNumber < 7 ? "orange" : "green",

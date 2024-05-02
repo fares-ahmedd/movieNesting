@@ -21,19 +21,19 @@ export async function fetchData(url, params) {
   }
 }
 
-export async function genresCall() {
-  let promises = [];
-  let endPoints = ["tv", "movie"];
-  let allGenres = {};
+export const genresCall = async () => {
+  const endpoints = ["tv", "movie"];
+  const requests = endpoints.map((endpoint) =>
+    fetchData(`/genre/${endpoint}/list`)
+  );
+  const responses = await Promise.all(requests);
 
-  endPoints.forEach((url) => {
-    promises.push(fetchData(`/genre/${url}/list`));
-  });
-
-  const data = await Promise.all(promises);
-  data.forEach(({ genres }) => {
-    return genres.forEach((item) => (allGenres[item.id] = item));
-  });
+  const allGenres = responses.reduce((acc, { genres }) => {
+    genres.forEach((genre) => {
+      acc[genre.id] = genre;
+    });
+    return acc;
+  }, {});
 
   return allGenres;
-}
+};

@@ -9,9 +9,7 @@ import { useNavigate } from "react-router-dom";
 function CarouselItem({ item, endpoint }) {
   const { url } = useSelector((state) => state.home);
   const navigate = useNavigate();
-  const posterUrl = item.poster_path
-    ? url.poster + item.poster_path
-    : PosterFallback;
+  const posterUrl = item.poster_path ? url + item.poster_path : PosterFallback;
   function handleClick() {
     navigate(`/${item.media_type || endpoint}/${item.id}`);
   }

@@ -1,0 +1,47 @@
+@import "../../../mixins.scss";
+
+.content {
+  width: 80%;
+  margin: auto;
+  z-index: 99999;
+
+  .title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    @include sm {
+      font-size: 20px;
+    }
+  }
+  .movies-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    & li {
+      padding: 7px;
+      border-radius: 4px;
+      flex-grow: 1;
+      text-align: center;
+      border: 1px solid gainsboro;
+      @include sm {
+        font-size: 12px;
+      }
+    }
+  }
+  .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    @include sm {
+      & button {
+        padding: 10px;
+      }
+      & span {
+        font-size: 12px;
+      }
+    }
+  }
+}

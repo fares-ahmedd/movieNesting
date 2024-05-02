@@ -9,20 +9,14 @@ const WhatsAppIcon = <FaWhatsapp />;
 const GitHubIcon = <FaGithub />;
 const GmailIcon = <SiGmail />;
 
-export const icons = [
-  FacebookIcon,
-  LinkedInIcon,
-  WhatsAppIcon,
-  GitHubIcon,
-  GmailIcon,
-];
+const icons = [FacebookIcon, LinkedInIcon, WhatsAppIcon, GitHubIcon, GmailIcon];
 
 function Footer() {
   return (
     <footer className={classes.footer}>
       <main className={classes.layout}>
         <h1 className={classes.title}>Contact or follow me on :</h1>
-        <ul className={classes.listIcons} >
+        <ul className={classes.listIcons}>
           {iconsLinks.map((icon, index) => (
             <li key={icon.title} className={classes.icon}>
               <a href={icon.href} target="_blank" rel="noreferrer noopener">
