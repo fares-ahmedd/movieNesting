@@ -2,16 +2,22 @@ import axios from "axios";
 
 const BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-export const URL = "https://image.tmdb.org/t/p/original/";
+const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
 
-const api_key = { api_key: TMDB_API_KEY };
+export const URL = "https://image.tmdb.org/t/p/original/";
+const headers = {
+  Authorization: `bearer ${TMDB_TOKEN}`,
+};
 
 export async function fetchData(url, params) {
   try {
-    const { data } = await axios.get(`${BASE_URL}${url}`, {
-      api_key,
-      params,
-    });
+    const { data } = await axios.get(
+      `${BASE_URL}${url}?api_key=${TMDB_API_KEY}`,
+      {
+        headers,
+        params,
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);
