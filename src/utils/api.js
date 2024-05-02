@@ -3,8 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
 const TMDB_API_KEY = import.meta.env.VITE_REACT_APP_TMDB_API_KEY;
-console.log(TMDB_TOKEN);
-console.log(TMDB_API_KEY);
+
 export const URL = "https://image.tmdb.org/t/p/original/";
 const headers = {
   Authorization: `bearer ${TMDB_TOKEN}`,
