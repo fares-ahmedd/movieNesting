@@ -51,11 +51,11 @@ npm run build
 ## App User Experience 
 (note) If your internet speed is slow, please be patient as the GIF may take some time to download
 <div align="center">
-  <img src="https://github.com/fares-ahmedd/chatix/assets/110955622/6a48b0de-99bc-4d17-9212-fbef53c4ddb6"  alt="App user experience">
+  <img src="https://github.com/fares-ahmedd/movieNesting/assets/110955622/6c413744-3860-43c6-9e47-3e8fd6c13525"  alt="App user experience">
 </div>
 
 ---
 
 <div align="center">
-  <img src="https://github.com/fares-ahmedd/chatix/assets/110955622/ed13e769-fcdf-441e-90f3-30eb1effb8b0"  alt="App user experience">
+  <img src="https://github.com/fares-ahmedd/movieNesting/assets/110955622/4932b6a1-994f-4361-9346-8861acee630a"  alt="App user experience">
 </div>
