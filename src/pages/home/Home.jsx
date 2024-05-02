@@ -1,9 +1,7 @@
 import { useCallback, useEffect } from "react";
-
 import { fetchData } from "../../utils/api";
 import { useDispatch } from "react-redux";
 import { getApiConfig } from "../../store/slices/homeSlice";
-
 import HeroBanner from "./heroBanner/HeroBanner";
 import classes from "./Home.module.scss";
 import Trending from "./trending/Trending";
@@ -27,6 +25,7 @@ function Home() {
   );
   useEffect(() => {
     getInitialPoster();
+    window.scrollTo({ top: 0 });
   }, [getInitialPoster]);
   return (
     <>

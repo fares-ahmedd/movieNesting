@@ -17,17 +17,18 @@
   }
 }
 
-@mixin xl {
-  @media only screen and (max-width: 1280px) {
+@mixin mdMin {
+  @media only screen and (min-width: 768px) {
     @content;
   }
 }
 
-@mixin xxl {
-  @media only screen and (max-width: 1536px) {
+@mixin lgMin {
+  @media only screen and (min-width: 1024px) {
     @content;
   }
 }
+
 // end media
 @mixin ellipsis($line: 2) {
   display: -webkit-box;
@@ -40,7 +41,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 @mixin flexBetween($gap: 0) {
@@ -54,16 +55,4 @@
   align-items: center;
   justify-content: center;
   gap: $gap;
-}
-
-@mixin mdMin {
-  @media only screen and (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin lgMin {
-  @media only screen and (min-width: 1024px) {
-    @content;
-  }
 }

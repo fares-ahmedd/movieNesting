@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { moviesList } from "../../../utils/helpers";
 import Img from "../../../components/lazyLoadImage/Img";
 import LogoSpinner from "../../../ui/LogoSpinner";
+import { Link } from "react-router-dom";
 function HeroBanner() {
   const [background, setBackground] = useState("");
   const { data, isLoading, error } = useFetch("/movie/upcoming");
@@ -32,8 +33,12 @@ function HeroBanner() {
           ))}
         </ul>
         <div className={classes["button-group"]}>
-          <LinkButton>Watch Movies 📽️ </LinkButton>
-          <LinkButton>Watch TV Shows 📺</LinkButton>
+          <Link to={"/explore/movie"}>
+            <LinkButton>Watch Movies 📽️ </LinkButton>
+          </Link>
+          <Link to={"/explore/tv"}>
+            <LinkButton>Watch TV Shows 📺</LinkButton>
+          </Link>
         </div>
       </div>
       <div className={classes["hero-banner--opacity"]}></div>
