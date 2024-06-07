@@ -22,3 +22,39 @@
     }
   }
 }
+.container {
+  @include sm {
+    margin: auto;
+    &__input {
+      padding: 0 5px;
+      flex-basis: auto;
+    }
+    & button {
+      flex-basis: auto;
+      width: 90px;
+    }
+  }
+}
+.inputFocus {
+  position: fixed;
+  height: 100dvh;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  & > form {
+    width: fit-content;
+    margin-left: auto;
+    margin-top: 50px;
+    margin-right: 34px;
+    box-shadow: 1px 1px 25px #6e6363;
+    border-radius: 30px;
+    border: 2px solid #a5a5a54d;
+  }
+  @include sm {
+    & > form {
+      width: fit-content;
+      margin: 80px auto;
+    }
+  }
+}
