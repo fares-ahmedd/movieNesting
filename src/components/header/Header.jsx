@@ -7,20 +7,17 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const navbarRef = useRef(null);
-
+  const fakeElementRef = useRef(null);
   useEffect(() => {
-    function handleObserver(entries) {
-      const [entry] = entries;
-      setIsScrolled(!entry.isIntersecting);
-    }
     const options = {
       root: null,
       rootMargin: "-50px",
-      threshold: 0,
     };
-    const observer = new IntersectionObserver(handleObserver, options);
-    const currentRef = navbarRef.current;
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      setIsScrolled(!entry.isIntersecting);
+    }, options);
+    const currentRef = fakeElementRef.current;
     if (currentRef) {
       observer.observe(currentRef);
     }
@@ -34,7 +31,7 @@ function Header() {
           <SearchForm />
         </div>
       </header>
-      <span className={classes.scroll} ref={navbarRef}></span>
+      <span className={classes.scroll} ref={fakeElementRef}></span>
       <IconButton
         title={"Up"}
         icon={<FaArrowAltCircleUp />}

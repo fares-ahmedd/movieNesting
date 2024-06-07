@@ -1,0 +1,39 @@
+.toast {
+  padding: 15px;
+  margin: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  z-index: 9999999999;
+}
+
+.error {
+  background-color: #830900;
+}
+
+.closeBtn {
+  margin-left: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.top-left {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  animation: fade-top linear 0.3s alternate;
+}
+
+@keyframes fade-top {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 10px;
+  }
+}
