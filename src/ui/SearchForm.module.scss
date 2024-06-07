@@ -23,6 +23,8 @@
   }
 }
 .container {
+  cursor: pointer;
+
   @include sm {
     margin: auto;
     &__input {

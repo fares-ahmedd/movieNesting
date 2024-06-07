@@ -16,4 +16,8 @@
   @include layout();
   @include flexBetween();
   margin-bottom: 20px;
+  @include sm {
+    flex-direction: column;
+    gap: 15px;
+  }
 }

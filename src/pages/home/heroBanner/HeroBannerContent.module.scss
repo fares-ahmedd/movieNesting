@@ -1,10 +1,9 @@
 @import "../../../mixins.scss";
 
 .content {
+  position: relative;
   width: 80%;
-  margin: auto;
-  z-index: 99999;
-
+  z-index: 8998494949;
   .title {
     font-size: 30px;
     text-align: center;
@@ -26,6 +25,7 @@
       flex-grow: 1;
       text-align: center;
       border: 1px solid gainsboro;
+      max-width: 150px;
       @include sm {
         font-size: 12px;
       }

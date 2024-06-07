@@ -38,6 +38,5 @@ export const genresCall = async () => {
     });
     return acc;
   }, {});
-
   return allGenres;
 };
