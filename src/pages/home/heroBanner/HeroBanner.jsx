@@ -10,15 +10,16 @@ function HeroBanner() {
   const [srcImage, setSrcImage] = useState("");
   const { data, isLoading } = useFetch("/movie/upcoming");
   const { url } = useSelector((state) => state.home);
-  const randomNumber = Math.floor(Math.random() * data?.results.length - 1);
 
   useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * data?.results.length - 1);
+
     if (url || data?.results[randomNumber]?.backdrop_path) {
       setSrcImage(`${url}${data?.results[randomNumber]?.backdrop_path}`);
     } else {
       setSrcImage(RandomMovie);
     }
-  }, [data, url, randomNumber]);
+  }, [data, url]);
   if (isLoading) return <LogoSpinner />;
   return (
     <div className={classes["hero-banner"]}>

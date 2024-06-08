@@ -33,9 +33,7 @@ export const homeSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(getInitialPoster.pending, (state) => {
-        console.log(state);
-      })
+
       .addCase(getInitialPoster.fulfilled, (state, action) => {
         state.url = action.payload;
       })

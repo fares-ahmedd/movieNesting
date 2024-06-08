@@ -40,3 +40,18 @@ export const genresCall = async () => {
   }, {});
   return allGenres;
 };
+
+export async function fetchPopularMovies() {
+  try {
+    const response = await axios.get(`${BASE_URL}/movie/popular`, {
+      headers: {
+        accept: "application/json",
+        Authorization: `bearer ${TMDB_TOKEN}`,
+      },
+    });
+    console.log(response);
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import SearchForm from "../../ui/SearchForm";
+import SearchForm from "./SearchForm";
 import classes from "./Header.module.scss";
 import Logo from "./Logo";
 import IconButton from "../../ui/IconButton";

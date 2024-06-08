@@ -14,7 +14,7 @@ function CarouselItem({ item, endpoint }) {
     navigate(`/${item.media_type || endpoint}/${item.id}`);
   }
   return (
-    <div className={classes.carouselItem} key={item.id} onClick={handleClick}>
+    <li className={classes.carouselItem} key={item.id} onClick={handleClick}>
       <div className={classes.posterBlock}>
         <Img src={posterUrl} className={classes.img} />
         <CircleRating
@@ -30,7 +30,7 @@ function CarouselItem({ item, endpoint }) {
           {dayjs(item.release_Date).format("MMM D, YYYY")}
         </span>
       </div>
-    </div>
+    </li>
   );
 }
 

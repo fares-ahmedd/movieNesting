@@ -21,22 +21,24 @@ function Carousel({ data, isLoading, endpoint, title }) {
     <section className={classes.carousel}>
       <div className={classes.layout}>
         {title && <div className={classes.carouselTitle}>{title}</div>}
+
         <BsFillArrowLeftCircleFill
-          className={`${classes.carouselLeftNav} ${classes.arrow}`}
+          className={`${classes.carouselLeftNav} ${classes.arrow} `}
           onClick={() => navigation("left")}
         />
+
         <BsFillArrowRightCircleFill
           className={`${classes.carouselRighttNav} ${classes.arrow}`}
           onClick={() => navigation("right")}
         />
         {!isLoading && (
-          <div className={classes.carouselItems} ref={carouselContainer}>
+          <ul className={classes.carouselItems} ref={carouselContainer}>
             {data?.map((item, index) => {
               return (
                 <CarouselItem item={item} key={index} endpoint={endpoint} />
               );
             })}
-          </div>
+          </ul>
         )}
         {isLoading && (
           <div className={classes.loadingSkeleton}>

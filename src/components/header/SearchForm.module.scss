@@ -1,4 +1,4 @@
-@import "../mixins.scss";
+@import "../../mixins.scss";
 
 .search-form {
   display: flex;
@@ -52,6 +52,7 @@
     box-shadow: 1px 1px 25px #6e6363;
     border-radius: 30px;
     border: 2px solid #a5a5a54d;
+    position: relative;
   }
   @include sm {
     & > form {
@@ -59,4 +60,17 @@
       margin: 80px auto;
     }
   }
+}
+.suggestionsList {
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background: var(--black2);
+  z-index: 10;
+  max-height: 150px;
+  overflow-y: auto;
+  top: 31px;
 }

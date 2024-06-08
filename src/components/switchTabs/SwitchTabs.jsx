@@ -8,9 +8,9 @@ function SwitchTabs({ data, onTabChange }) {
   function activeTab(tab, index) {
     setLeft(index * 100);
     setTimeout(() => {
-      setSelectedTab(index);
+      onTabChange(tab);
     }, 300);
-    onTabChange(tab);
+    setSelectedTab(index);
   }
   return (
     <div className={classes.switchingTabs}>
