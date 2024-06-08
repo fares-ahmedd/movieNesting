@@ -49,7 +49,6 @@ export async function fetchPopularMovies() {
         Authorization: `bearer ${TMDB_TOKEN}`,
       },
     });
-    console.log(response);
     return response.data.results;
   } catch (error) {
     console.log(error);

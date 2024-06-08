@@ -1,8 +1,36 @@
 .suggestionItem {
   padding: 10px;
   cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid lightslategrey;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  span {
+    width: fit-content !important;
+  }
+  & .img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  & .section {
+    flex: 1;
+    & .title {
+      margin-bottom: 10px;
+      display: block;
+    }
+    & .date {
+      font-size: 14;
+      color: gray;
+    }
+  }
+  &:hover {
+    background-color: #051025;
+    color: white;
+  }
 }
-.suggestionItem:hover {
-  background-color: blue;
+.focused {
+  background-color: #051025;
   color: white;
 }

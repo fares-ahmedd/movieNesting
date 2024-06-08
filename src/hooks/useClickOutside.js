@@ -9,7 +9,9 @@ const useOnClickOutside = (ref, handler) => {
         event.target.tagName === "UL" ||
         event.target.tagName === "LI" ||
         event.target.tagName === "SPAN" ||
-        event.target.tagName === "BUTTON"
+        event.target.tagName === "BUTTON" ||
+        event.target.tagName === "IMG" ||
+        event.target.tagName === "SECTION"
       ) {
         return;
       }

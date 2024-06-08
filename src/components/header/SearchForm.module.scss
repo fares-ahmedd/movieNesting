@@ -9,6 +9,7 @@
     height: 30px;
     padding: 0 30px;
     flex-basis: 70%;
+    font-weight: bold;
   }
   @include sm {
     margin: auto;
@@ -70,7 +71,14 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background: var(--black2);
   z-index: 10;
-  max-height: 150px;
+  max-height: 300px;
   overflow-y: auto;
   top: 31px;
+}
+
+.hint {
+  padding: 10px;
+  cursor: text;
+  color: darkturquoise;
+  font-weight: bold;
 }
