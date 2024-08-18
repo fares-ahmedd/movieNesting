@@ -33,3 +33,16 @@
   color: #9b94a1;
   font-size: 28px;
 }
+
+.notFoundMessage {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & .goHome {
+    text-decoration: underline;
+    color: rgb(0, 4, 255);
+    width: fit-content;
+  }
+}

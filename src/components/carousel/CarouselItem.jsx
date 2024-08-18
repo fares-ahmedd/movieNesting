@@ -6,10 +6,13 @@ import classes from "./CarouselItem.module.scss";
 import CircleRating from "../../ui/CircleRating";
 import Genres from "../genres/Genres";
 import { useNavigate } from "react-router-dom";
+import { selectUrl } from "../../store/slices/homeSlice";
 function CarouselItem({ item, endpoint }) {
-  const { url } = useSelector((state) => state.home);
+  const url = useSelector(selectUrl);
   const navigate = useNavigate();
-  const posterUrl = item.poster_path ? url + item.poster_path : PosterFallback;
+
+  const posterUrl =
+    item.poster_path && url ? url + item.poster_path : PosterFallback;
   function handleClick() {
     navigate(`/${item.media_type || endpoint}/${item.id}`);
   }

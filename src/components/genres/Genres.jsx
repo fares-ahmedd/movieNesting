@@ -1,19 +1,23 @@
 import { useSelector } from "react-redux";
 import classes from "./Genres.module.scss";
+import { selectGenres } from "../../store/slices/homeSlice";
 
-function Genres({ data, width }) {
-  const { genres } = useSelector((state) => state.home);
+function Genres({ data, width, isCard = true }) {
+  const genres = useSelector(selectGenres);
+
+  if (data.length < 1) return;
   return (
-    <div className={classes.genres}>
-      {data?.map((g) => {
-        if (!genres[g]?.name) return null;
-        return (
-          <div className={classes.genre} key={g} style={{ width }}>
-            {genres[g]?.name}
-          </div>
-        );
-      })}
-    </div>
+    <ul className={classes.genres}>
+      {data?.map((g) => (
+        <li
+          className={`${isCard ? classes.card : classes.genre}`}
+          key={g}
+          style={{ width }}
+        >
+          {genres[g]?.name}
+        </li>
+      ))}
+    </ul>
   );
 }
 

@@ -13,22 +13,29 @@ import RatingAndPlay from "./RatingAndPlay.jsx";
 import BannerTitle from "./BannerTitle.jsx";
 import { URL } from "../../../utils/api.js";
 import Cast from "./Cast.jsx";
+import { useSelector } from "react-redux";
 
-function DetailsBanner({ video, crew, credits, isLoading: isLoadingCasts }) {
+function DetailsBanner() {
   const { mediaType, id } = useParams();
+
+  const {
+    credits,
+    isLoading: isLoadingCasts,
+    error,
+  } = useSelector((state) => state.details);
   const { data, isLoading } = useFetch(`/${mediaType}/${id}`);
   const _genres = data?.genres?.map((g) => g.id);
-  const director = crew?.filter((f) => f.job === "Director");
-  const writer = crew?.filter(
+  const director = credits.crew?.filter((f) => f.job === "Director");
+  const writer = credits.crew?.filter(
     (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
   );
   useEffect(() => {
     window.scrollTo({ top: "0" });
   }, [isLoadingCasts]);
   if (isLoading) return <LogoSpinner />;
-  if (!data) return <Error />;
+  if (!data || error) return <Error />;
   return (
-    <div className={classes.detailsBanner}>
+    <section className={classes.detailsBanner}>
       <>
         <div className={classes["backdrop-img"]}>
           <Img src={URL + data.backdrop_path} />
@@ -40,17 +47,16 @@ function DetailsBanner({ video, crew, credits, isLoading: isLoadingCasts }) {
               {data.poster_path && (
                 <Img
                   className={classes.posterImg}
-                  src={URL + data.poster_path}
+                  src={
+                    data.poster_path ? URL + data.poster_path : PosterFallback
+                  }
                 />
-              )}
-              {!data.poster_path && (
-                <Img className={classes.posterImg} src={PosterFallback} />
               )}
             </div>
             <div className={classes.right}>
               <BannerTitle data={data} />
-              <Genres data={_genres} width={"150px"} />
-              <RatingAndPlay data={data} video={video} />
+              <Genres data={_genres} width={"150px"} isCard={false} />
+              <RatingAndPlay data={data} />
               <Overview data={data} />
               <MovieInfo data={data} director={director} writer={writer} />
               <Cast data={credits?.cast} isLoading={isLoadingCasts} />
@@ -58,7 +64,7 @@ function DetailsBanner({ video, crew, credits, isLoading: isLoadingCasts }) {
           </div>
         </div>
       </>
-    </div>
+    </section>
   );
 }
 

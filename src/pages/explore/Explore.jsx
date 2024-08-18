@@ -32,21 +32,18 @@ function Explore() {
 
   const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
 
-  const fetchInitialData = useCallback(
-    async function fetchInitialData() {
-      try {
-        setLoading(true);
-        const response = await fetchData(`/discover/${mediaType}`, filters);
-        setData(response);
-        setPageNum((prev) => prev + 1);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [mediaType]
-  );
+  const fetchInitialData = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await fetchData(`/discover/${mediaType}`, filters);
+      setData(response);
+      setPageNum((prev) => prev + 1);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }, [mediaType]);
 
   async function fetchNextPageData() {
     const response = await fetchData(
@@ -97,7 +94,9 @@ function Explore() {
     setPageNum(1);
     fetchInitialData();
   }
-
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [loading]);
   return (
     <div className={classes.page}>
       <section className="layout">

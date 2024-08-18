@@ -1,27 +1,32 @@
 import { useParams } from "react-router-dom";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
-import useFetch from "../../hooks/useFetch";
 import VideosSection from "./videosSection/VideosSection";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {
+  getMovieCredits,
+  getMovieVideos,
+} from "../../store/slices/detailsSlice";
 import Similar from "./similar/Similar";
 import Recommendation from "./recommendation/Recommendation";
 
 function Details() {
   const { mediaType, id } = useParams();
-  const { data, isLoading } = useFetch(`/${mediaType}/${id}/videos`);
-  const { data: credits } = useFetch(`/${mediaType}/${id}/credits`);
-  console.log("Rerender");
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMovieVideos({ mediaType, id })).unwrap();
+  }, [dispatch, mediaType, id]);
+  useEffect(() => {
+    dispatch(getMovieCredits({ mediaType, id })).unwrap();
+  }, [dispatch, mediaType, id]);
   return (
-    <section>
-      <DetailsBanner
-        video={data?.results?.[0]}
-        crew={credits?.crew}
-        credits={credits}
-        isLoading={isLoading}
-      />
-      <VideosSection data={data} isLoading={isLoading} />
+    <main>
+      <DetailsBanner />
+      <VideosSection />
       <Similar mediaType={mediaType} id={id} />
       <Recommendation mediaType={mediaType} id={id} />
-    </section>
+    </main>
   );
 }
 

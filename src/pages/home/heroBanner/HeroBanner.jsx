@@ -6,16 +6,17 @@ import Img from "../../../components/lazyLoadImage/Img";
 import LogoSpinner from "../../../ui/LogoSpinner";
 import RandomMovie from "../../../assets/random-movies.jpg";
 import HeroBannerContent from "./HeroBannerContent";
+import { selectUrl } from "../../../store/slices/homeSlice";
 function HeroBanner() {
   const [srcImage, setSrcImage] = useState("");
   const { data, isLoading } = useFetch("/movie/upcoming");
-  const { url } = useSelector((state) => state.home);
+  const url = useSelector(selectUrl);
 
   useEffect(() => {
     const randomNumber = Math.floor(Math.random() * data?.results.length - 1);
-
-    if (url || data?.results[randomNumber]?.backdrop_path) {
-      setSrcImage(`${url}${data?.results[randomNumber]?.backdrop_path}`);
+    const randomPoster = data?.results[randomNumber]?.backdrop_path;
+    if (url && randomPoster) {
+      setSrcImage(`${url}${randomPoster}`);
     } else {
       setSrcImage(RandomMovie);
     }

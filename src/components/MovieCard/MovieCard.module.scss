@@ -2,6 +2,9 @@
 .movieCard {
   width: calc(50% - 5px);
   margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   cursor: pointer;
   flex-shrink: 0;
   background-color: var(--black2);
@@ -26,6 +29,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 10px;
+    direction: rtl;
     transition: all ease 0.5s;
     .lazy-load-image-background {
       position: absolute;

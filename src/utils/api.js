@@ -25,22 +25,6 @@ export async function fetchData(url, params) {
   }
 }
 
-export const genresCall = async () => {
-  const endpoints = ["tv", "movie"];
-  const requests = endpoints.map((endpoint) =>
-    fetchData(`/genre/${endpoint}/list`)
-  );
-  const responses = await Promise.all(requests);
-
-  const allGenres = responses.reduce((acc, { genres }) => {
-    genres.forEach((genre) => {
-      acc[genre.id] = genre;
-    });
-    return acc;
-  }, {});
-  return allGenres;
-};
-
 export async function fetchPopularMovies() {
   try {
     const response = await axios.get(`${BASE_URL}/movie/popular`, {

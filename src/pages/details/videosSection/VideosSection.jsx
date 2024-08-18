@@ -5,21 +5,24 @@ import Img from "../../../components/lazyLoadImage/Img";
 import Playbtn from "../Playbtn";
 import { useState } from "react";
 import VideoSkeleton from "./VideoSkeleton";
+import { useSelector } from "react-redux";
 
-const VideosSection = ({ data, isLoading }) => {
+const VideosSection = () => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
+  const { isLoading, videos } = useSelector((state) => state.details);
   function handleClick(video) {
     setVideoId(video.key);
     setShow(true);
   }
+
   return (
-    <div className={classes.videosSection}>
-      <section className="layout">
+    <section className={classes.videosSection}>
+      <div className="layout">
         <div className={classes.sectionHeading}>Official Videos</div>
         {!isLoading ? (
           <div className={classes.videos}>
-            {data?.results?.map((video) => (
+            {videos?.map((video) => (
               <div
                 key={video.id}
                 className={classes.videoItem}
@@ -42,14 +45,14 @@ const VideosSection = ({ data, isLoading }) => {
         ) : (
           <VideoSkeleton />
         )}
-      </section>
+      </div>
       <VideoPopup
         show={show}
         setShow={setShow}
         videoId={videoId}
         setVideoId={setVideoId}
       />
-    </div>
+    </section>
   );
 };
 

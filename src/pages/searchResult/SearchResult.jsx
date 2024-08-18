@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LogoSpinner from "../../ui/LogoSpinner";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import classes from "./SearchResult.module.scss";
 import { fetchData } from "../../utils/api";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -66,11 +66,16 @@ function SearchResult() {
               </InfiniteScroll>
             </>
           ) : (
-            <span className={classes.resultNotFound}>
-              We could not find any results matching your search query:{" "}
-              {<span className={classes.resultQuery}>"{query}"</span>}. 🤔{" "}
-              <br /> Please try a different search term or refine your query
-            </span>
+            <div className={classes.notFoundMessage}>
+              <p className={classes.resultNotFound}>
+                We could not find any results matching your search query:{" "}
+                {<span className={classes.resultQuery}>"{query}"</span>}. 🤔{" "}
+                <br /> Please try a different search term or refine your query
+              </p>{" "}
+              <Link to={"/"} className={classes.goHome}>
+                Go Home
+              </Link>
+            </div>
           )}
         </div>
       )}

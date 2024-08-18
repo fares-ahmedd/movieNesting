@@ -64,7 +64,10 @@ function SearchForm() {
   }
   useEffect(() => {
     if (selectorRef?.current) {
-      selectorRef.current.scrollIntoView({ behavior: "smooth" });
+      selectorRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   }, [focusedIndex]);
   return (

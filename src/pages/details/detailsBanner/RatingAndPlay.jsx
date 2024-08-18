@@ -3,11 +3,13 @@ import classes from "./RatingAndPlay.module.scss";
 import Playbtn from "../Playbtn";
 import { useState } from "react";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
+import { useSelector } from "react-redux";
+import { selectMovieVideo } from "../../../store/slices/detailsSlice";
 
-function RatingAndPlay({ data, video }) {
+function RatingAndPlay({ data }) {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
-
+  const video = useSelector(selectMovieVideo);
   function startPlay() {
     setShow(true);
     setVideoId(video.key);

@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import homeSlice from "./slices/homeSlice";
-
+import homeReducer from "./slices/homeSlice";
+import detailsReducer from "./slices/detailsSlice";
 export const store = configureStore({
   reducer: {
-    home: homeSlice.reducer,
+    home: homeReducer,
+    details: detailsReducer,
   },
 });

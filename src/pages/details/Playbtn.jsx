@@ -7,8 +7,9 @@ function Playbtn({ onClick, isRemoveTitle = false }) {
     <div
       className={`${styles.btnContainer} ${isRemoveTitle ? styles.title : ""}`}
       onClick={onClick}
+      role="button"
     >
-      <button className={styles.button}>
+      <span className={styles.button}>
         <svg
           viewBox="0 0 448 512"
           xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +21,7 @@ function Playbtn({ onClick, isRemoveTitle = false }) {
             fill="currentColor"
           />
         </svg>
-      </button>
+      </span>
       {isRemoveTitle ? null : <span>Watch Trailer</span>}
     </div>
   );
