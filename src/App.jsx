@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import LogoSpinner from "./ui/LogoSpinner";
 const Home = lazy(() => import("./pages/home/Home"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const SearchResult = lazy(() => import("./pages/searchResult/SearchResult"));
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <Suspense fa>
+    <Suspense fallback={<LogoSpinner />}>
       <RouterProvider router={router} />
     </Suspense>
   );
