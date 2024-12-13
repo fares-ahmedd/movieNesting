@@ -1,27 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import SearchForm from "./SearchForm";
 import classes from "./Header.module.scss";
 import Logo from "./Logo";
 import IconButton from "../../ui/IconButton";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import { useScroll } from "./useScroll";
 
 function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const fakeElementRef = useRef(null);
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "-50px",
-    };
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      setIsScrolled(!entry.isIntersecting);
-    }, options);
-    const currentRef = fakeElementRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-  }, []);
+  const moveToElement = useRef(null);
+  const isScrolled = useScroll(moveToElement);
 
   return (
     <>
@@ -31,7 +18,7 @@ function Header() {
           <SearchForm />
         </div>
       </header>
-      <span className={classes.scroll} ref={fakeElementRef}></span>
+      <div className={classes.scroll} ref={moveToElement}></div>
       <IconButton
         title={"Up"}
         icon={<FaArrowAltCircleUp />}

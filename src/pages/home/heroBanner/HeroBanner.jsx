@@ -25,7 +25,7 @@ function HeroBanner() {
   return (
     <div className={classes["hero-banner"]}>
       <div className={classes["hero-banner__backdrop-img"]}>
-        <Img src={srcImage} className={"img-poster"} />
+        <Img src={srcImage} className={classes["img-poster"]} />
       </div>
       <HeroBannerContent />
       <div className={classes["hero-banner--opacity"]}></div>

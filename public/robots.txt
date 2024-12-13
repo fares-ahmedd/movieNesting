@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Sitemap: https://movie-nesting.netlify.app/sitemap.xml
+Crawl-delay: 10

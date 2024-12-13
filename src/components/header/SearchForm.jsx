@@ -3,7 +3,6 @@ import classes from "./SearchForm.module.scss";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import ButtonIcon from "../../ui/ButtonIcon";
-import useToast from "../../ui/ErrorMessage";
 import useOnClickOutside from "../../hooks/useClickOutside";
 import { fetchPopularMovies } from "../../utils/api";
 import SuggestionItem from "./SuggestionItem";
@@ -19,19 +18,10 @@ function SearchForm() {
   );
   useOnClickOutside(inputRef, () => setIsFocus(false));
   const navigate = useNavigate();
-  const { toastComponent, triggerToast } = useToast();
-  function handleChange(e) {
-    setQuery(e.target.value);
-  }
+
   function handleSubmit(e) {
     e.preventDefault();
     if (!query.trim()) {
-      if (focusedIndex === 0 && !query.trim()) {
-        triggerToast({
-          message: "please type a movie name",
-          duration: 3000,
-        });
-      }
       return;
     }
     window.scrollTo({ top: 0 });
@@ -80,7 +70,7 @@ function SearchForm() {
           value={query}
           className={`${classes["search-form__input"]} `}
           placeholder="Search for movie or tv show..."
-          onChange={handleChange}
+          onChange={(e) => setQuery(e.target.value)}
           onFocus={handleFocusInput}
           ref={inputRef}
           onKeyDown={handleKeyDown}
@@ -102,7 +92,6 @@ function SearchForm() {
           </ul>
         )}
       </form>
-      {toastComponent}
     </div>
   );
 }

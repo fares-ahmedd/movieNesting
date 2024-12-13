@@ -1,12 +1,8 @@
 @import "./mixins.scss";
+
 :root {
   line-height: 1;
   font-weight: 500;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 
   --black: #021a4a;
   --black2: #01153c;
