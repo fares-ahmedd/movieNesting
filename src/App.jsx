@@ -1,11 +1,11 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./pages/home/Home";
-import AppLayout from "./pages/AppLayout";
-import SearchResult from "./pages/searchResult/SearchResult";
-import Details from "./pages/details/Details";
-import Explore from "./pages/explore/Explore";
-import NotFoundPage from "./pages/not-found/NotFound";
+const Home = lazy(() => import("./pages/home/Home"));
+const AppLayout = lazy(() => import("./pages/AppLayout"));
+const SearchResult = lazy(() => import("./pages/searchResult/SearchResult"));
+const Details = lazy(() => import("./pages/details/Details"));
+const Explore = lazy(() => import("./pages/explore/Explore"));
+const NotFoundPage = lazy(() => import("./pages/not-found/NotFound"));
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -20,7 +20,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fa>
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 }
 
 export default App;
