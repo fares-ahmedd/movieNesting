@@ -4,12 +4,12 @@ import classes from "./BannerTitle.module.scss";
 function BannerTitle({ data }) {
   return (
     <>
-      <div className={classes.title}>
+      <h1 className={classes.title}>
         {`${data.name || data.title} (${dayjs(data.release_date).format(
           "YYYY"
         )})`}
-      </div>
-      <div className={classes.subtitle}>{data?.tagline}</div>
+      </h1>
+      <span className={classes.subtitle}>{data?.tagline}</span>
     </>
   );
 }

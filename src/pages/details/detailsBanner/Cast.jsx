@@ -20,7 +20,7 @@ const Cast = ({ data, isLoading }) => {
                 <div className={classes.profileImg}>
                   <Img src={imgUrl} />
                 </div>
-                <h3 className={classes.name}>{item.name}</h3>
+                <strong className={classes.name}>{item.name}</strong>
                 <span className={classes.character}>{item.character}</span>
               </div>
             );

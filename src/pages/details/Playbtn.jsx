@@ -7,6 +7,7 @@ function Playbtn({ onClick, isRemoveTitle = false }) {
       className={`${styles.btnContainer} ${isRemoveTitle ? styles.title : ""}`}
       onClick={onClick}
       role="button"
+      aria-label="Play Trailer"
     >
       <span className={styles.button}>
         <svg

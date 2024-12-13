@@ -45,6 +45,7 @@
         font-size: 14px;
         line-height: 20px;
         font-weight: 600;
+        display: block;
         @include mdMin {
           font-size: 18px;
           line-height: 24px;

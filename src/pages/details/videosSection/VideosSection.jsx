@@ -19,11 +19,11 @@ const VideosSection = () => {
   return (
     <section className={classes.videosSection}>
       <div className="layout">
-        <div className={classes.sectionHeading}>Official Videos</div>
+        <h3 className={classes.sectionHeading}>Official Videos</h3>
         {!isLoading ? (
-          <div className={classes.videos}>
+          <ul className={classes.videos}>
             {videos?.map((video) => (
-              <div
+              <li
                 key={video.id}
                 className={classes.videoItem}
                 onClick={() => handleClick(video)}
@@ -39,9 +39,9 @@ const VideosSection = () => {
                   <Playbtn isRemoveTitle={true} />
                 </div>
                 <div className={classes.videoTitle}>{video.name}</div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         ) : (
           <VideoSkeleton />
         )}

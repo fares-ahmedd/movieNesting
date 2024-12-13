@@ -1,6 +1,7 @@
 @import "../mixins.scss";
 .container {
   height: 100vh;
+  height: 100dvh;
   @include center(10);
   flex-direction: column;
   & .title {
