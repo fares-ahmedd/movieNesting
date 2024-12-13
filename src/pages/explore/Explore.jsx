@@ -8,20 +8,9 @@ import LogoSpinner from "../../ui/LogoSpinner";
 import classes from "./Explore.module.scss";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import NotFound from "../not-found/NotFound";
+import { SORT_BY_DATA } from "../../utils/util";
 
 let filters = {};
-const sortbyData = [
-  { value: "popularity.desc", label: "Popularity Descending" },
-  { value: "popularity.asc", label: "Popularity Ascending" },
-  { value: "vote_average.desc", label: "Rating Descending" },
-  { value: "vote_average.asc", label: "Rating Ascending" },
-  {
-    value: "primary_release_date.desc",
-    label: "Release Date Descending",
-  },
-  { value: "primary_release_date.asc", label: "Release Date Ascending" },
-  { value: "original_title.asc", label: "Title (A-Z)" },
-];
 function Explore() {
   const [data, setData] = useState(null);
   const [pageNum, setPageNum] = useState(1);
@@ -33,8 +22,8 @@ function Explore() {
   const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
 
   const fetchInitialData = useCallback(async () => {
+    setLoading(true);
     try {
-      setLoading(true);
       const response = await fetchData(`/discover/${mediaType}`, filters);
       setData(response);
       setPageNum((prev) => prev + 1);
@@ -94,9 +83,7 @@ function Explore() {
     setPageNum(1);
     fetchInitialData();
   }
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, [loading]);
+
   return (
     <div className={classes.page}>
       <section className="layout">
@@ -121,7 +108,7 @@ function Explore() {
             <Select
               name="sortby"
               value={sortby}
-              options={sortbyData}
+              options={SORT_BY_DATA}
               onChange={onChange}
               isClearable={true}
               placeholder="Sort by"
