@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./Cast.module.scss";
 
 import Img from "../../../components/lazyLoadImage/Img";

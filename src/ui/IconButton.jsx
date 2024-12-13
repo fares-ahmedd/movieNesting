@@ -1,5 +1,4 @@
 // IconButton.jsx
-import React from "react";
 import styles from "./IconButton.module.scss";
 
 const IconButton = ({ icon, title, backgroundColor, onClick, className }) => {

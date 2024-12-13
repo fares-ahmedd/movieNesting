@@ -15,6 +15,7 @@ function HeroBanner() {
   useEffect(() => {
     const randomNumber = Math.floor(Math.random() * data?.results.length - 1);
     const randomPoster = data?.results[randomNumber]?.backdrop_path;
+
     if (url && randomPoster) {
       setSrcImage(`${url}${randomPoster}`);
     } else {

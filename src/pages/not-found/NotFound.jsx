@@ -1,7 +1,5 @@
-import React from "react";
 import styles from "./NotFound.module.scss";
 import pageNotFound from "../../assets/error.svg";
-import { Link } from "react-router-dom";
 import LinkButton from "../../ui/LinkButton";
 function NotFoundPage() {
   return (
@@ -11,10 +9,8 @@ function NotFoundPage() {
       <p className={styles.description}>
         The page you're looking for doesn't exist or has been moved.
       </p>
-      <Link to={"/"}>
-        {" "}
-        <LinkButton>Go Back Home</LinkButton>
-      </Link>
+
+      <LinkButton to={"/"}>Go Back Home</LinkButton>
     </div>
   );
 }

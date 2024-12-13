@@ -1,5 +1,4 @@
 // Btn.jsx
-import React from "react";
 import styles from "./Playbtn.module.scss";
 
 function Playbtn({ onClick, isRemoveTitle = false }) {

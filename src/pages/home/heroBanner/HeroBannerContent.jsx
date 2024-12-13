@@ -1,6 +1,5 @@
 import classes from "./HeroBannerContent.module.scss";
 import { moviesList } from "../../../utils/helpers";
-import { Link } from "react-router-dom";
 import LinkButton from "../../../ui/LinkButton";
 function HeroBannerContent() {
   return (
@@ -14,12 +13,9 @@ function HeroBannerContent() {
         ))}
       </ul>
       <div className={classes["button-group"]}>
-        <Link to={"/explore/movie"}>
-          <LinkButton>Watch Movies 📽️ </LinkButton>
-        </Link>
-        <Link to={"/explore/tv"}>
-          <LinkButton>Watch TV Shows 📺</LinkButton>
-        </Link>
+        <LinkButton to={"/explore/movie"}>Watch Movies 📽️ </LinkButton>
+
+        <LinkButton to={"/explore/tv"}>Watch TV Shows 📺</LinkButton>
       </div>
     </div>
   );

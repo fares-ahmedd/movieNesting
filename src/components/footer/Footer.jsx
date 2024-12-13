@@ -15,7 +15,7 @@ function Footer() {
   return (
     <footer className={classes.footer}>
       <main className={classes.layout}>
-        <h1 className={classes.title}>Contact or follow me on :</h1>
+        <h1 className={classes.title}>Contact or follow me on</h1>
         <ul className={classes.listIcons}>
           {iconsLinks.map((icon, index) => (
             <li key={icon.title} className={classes.icon}>
